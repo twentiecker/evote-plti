@@ -63,7 +63,9 @@
   async function loop() {
     webcam.update(); // update the webcam frame
     await predict();
-    window.requestAnimationFrame(loop);
+    if (!$nilai) {
+      window.requestAnimationFrame(loop);
+    }
   }
 
   // run the webcam image through the image model
@@ -114,7 +116,6 @@
     }
     if ($nilai==<?=$nik;?>){
       window.open("<?=base_url();?>pemilihan/pilihcalon/<?=$nik;?>","_self");
-
     }
 
   }
